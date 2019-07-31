@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "454427092491",
+    "firebase_url": "https://phuketapp-dcf2e.firebaseio.com",
+    "project_id": "phuketapp-dcf2e",
+    "storage_bucket": "phuketapp-dcf2e.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:454427092491:android:f99f0f7e07c4b34e",
+        "android_client_info": {
+          "package_name": "com.example.phuketapp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "454427092491-90a29cj5n09iflla1lo3hihftbqa7pfs.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.phuketapp",
+            "certificate_hash": "3649192eb851fb8e0969b9c3ae61a9b8f6b40ef6"
+          }
+        },
+        {
+          "client_id": "454427092491-tsdqpd08s0j386s3mfpqnjqnj3e19a44.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyD2-iPoibvdpwt_GaRbawerWO-wEmvvwGQ"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "454427092491-tsdqpd08s0j386s3mfpqnjqnj3e19a44.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
