@@ -23,6 +23,7 @@
         </activity>
         <activity android:name=".ConverterActivity" />
         <activity android:name=".ChecklistActivity" />
+        <activity android:name=".BudgetFormActivity" />
     </application>
 
 </manifest>
