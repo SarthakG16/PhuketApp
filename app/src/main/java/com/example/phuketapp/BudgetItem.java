@@ -3,12 +3,12 @@ package com.example.phuketapp;
 public class BudgetItem {
 
     public String name;
-    public String sgd;
-    public String thb;
+    public double sgd;
+    public double thb;
     public String date;
     public String paid;
 
-    public BudgetItem(String name, String sgd, String thb, String date, String paid) {
+    public BudgetItem(String name, double sgd, double thb, String date, String paid) {
         this.name = name;
         this.sgd = sgd;
         this.thb = thb;
@@ -23,11 +23,11 @@ public class BudgetItem {
         return name;
     }
 
-    public String getSgd() {
+    public double getSgd() {
         return sgd;
     }
 
-    public String getThb() {
+    public double getThb() {
         return thb;
     }
 

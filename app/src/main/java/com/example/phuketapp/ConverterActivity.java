@@ -17,10 +17,6 @@ public class ConverterActivity extends AppCompatActivity {
 
     private static final int ACTIVITY_NUM = 1;
 
-
-    //60:4B:AA:4E:0C
-    //B0-52-16-CF-35-B4
-
     private EditText sgd_amount, thb_amount;
     private boolean sgdFocus, thbFocus;
 

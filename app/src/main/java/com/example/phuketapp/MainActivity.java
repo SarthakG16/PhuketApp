@@ -4,6 +4,8 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.BottomNavigationView;
 import android.support.design.widget.FloatingActionButton;
+import android.support.design.widget.TextInputEditText;
+import android.support.design.widget.TextInputLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.support.annotation.NonNull;
 import android.support.v7.widget.LinearLayoutManager;
@@ -30,9 +32,13 @@ public class   MainActivity extends AppCompatActivity {
 
     private BudgetItemAdapter budgetItemAdapter;
     private RecyclerView budgetItemRecyclerView;
+
+    private TextInputLayout sgdTotalView, thbTotalView;
     private List<BudgetItem> budgetItemList = new ArrayList<>();
 
     FirebaseFirestore db = FirebaseFirestore.getInstance();
+
+    private double thb_total, sgd_total;
 
     private BottomNavigationView.OnNavigationItemSelectedListener mOnNavigationItemSelectedListener
             = new BottomNavigationView.OnNavigationItemSelectedListener() {
@@ -40,6 +46,7 @@ public class   MainActivity extends AppCompatActivity {
         @Override
         public boolean onNavigationItemSelected(@NonNull MenuItem item) {
             Intent intent = null;
+
 
             switch (item.getItemId()) {
                 case R.id.navigation_budget:
@@ -66,6 +73,11 @@ public class   MainActivity extends AppCompatActivity {
         super.onStart();
 
         budgetItemRecyclerView = findViewById(R.id.budget_recyclerView);
+
+        sgdTotalView = findViewById(R.id.budget_total_sgd);
+        thbTotalView = findViewById(R.id.budget_total_thb);
+
+
         db.collection("budget")
                 .addSnapshotListener(new EventListener<QuerySnapshot>() {
             @Override
@@ -75,6 +87,8 @@ public class   MainActivity extends AppCompatActivity {
                     return;
                 }
                 budgetItemList.clear();
+                thb_total = 0;
+                sgd_total = 0;
 
 //                        progressBar.setVisibility(View.GONE);
                 List<DocumentSnapshot> snapshots = queryDocumentSnapshots.getDocuments();
@@ -82,6 +96,8 @@ public class   MainActivity extends AppCompatActivity {
                 for (int i = 0; i < snapshots.size(); i++) {
                     if (snapshots.get(i).getData().containsKey("name")) {
                         BudgetItem budgetItem = snapshots.get(i).toObject(BudgetItem.class);
+                        thb_total += budgetItem.thb;
+                        sgd_total += budgetItem.sgd;
                         budgetItemList.add(budgetItem);
                     }
                 }
@@ -89,6 +105,9 @@ public class   MainActivity extends AppCompatActivity {
                 BudgetItemAdapter budgetItemAdapter = new BudgetItemAdapter( budgetItemList, MainActivity.this);
                 budgetItemRecyclerView.setAdapter(budgetItemAdapter);
                 budgetItemRecyclerView.setLayoutManager(new LinearLayoutManager(MainActivity.this));
+
+                sgdTotalView.getEditText().setText("$ " + String.format("%.2f", sgd_total));
+                thbTotalView.getEditText().setText("$ " + String.format("%.2f", thb_total));
 
             }
         });

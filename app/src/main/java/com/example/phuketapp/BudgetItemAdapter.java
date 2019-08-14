@@ -52,8 +52,8 @@ public class BudgetItemAdapter extends RecyclerView.Adapter<BudgetItemAdapter.Bu
         BudgetItem budgetItem = budgetItemList.get(i);
 
         budgetItemHolder.name.setText(budgetItem.name);
-        budgetItemHolder.sgd.setText("SGD: " + budgetItem.sgd);
-        budgetItemHolder.thb.setText("THB: " + budgetItem.thb);
+        budgetItemHolder.sgd.setText("SGD: " + String.format("%.2f", budgetItem.sgd));
+        budgetItemHolder.thb.setText("THB: " + String.format("%.2f", budgetItem.thb));
         budgetItemHolder.date.setText("Date: " + budgetItem.date);
         budgetItemHolder.paid.setText("Paid: " + budgetItem.getPaid());
 
